@@ -1,4 +1,5 @@
 import React from "react";
+import { FaArrowCircleLeft } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
 
 const SingleCourse = () => {
@@ -8,6 +9,12 @@ const SingleCourse = () => {
   return (
     <div className="container">
       <div className="card text-center card-compact w-3/5 mt-16 mb-16 bg-base-100 shadow-2xl mx-auto">
+        <Link to="/all-courses" className="text-left m-3">
+          <button>
+            <FaArrowCircleLeft className="inline mx-2" />
+            Back to Courses
+          </button>
+        </Link>
         <h1 className="text-4xl mt-10">Course Title : {name}</h1>
         <figure>
           <img src={image} alt={name} className="w-48 my-10" />
@@ -24,6 +31,7 @@ const SingleCourse = () => {
               {url}
             </Link>
           </p>
+          <button>Get premium access</button>
         </div>
       </div>
     </div>
