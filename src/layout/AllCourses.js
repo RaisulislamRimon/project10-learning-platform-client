@@ -8,7 +8,7 @@ const AllCourses = () => {
   return (
     <div className="columns-3 sm:columns-2">
       <div>
-        <SideNavCourse />
+        <SideNavCourse courses={courses} />
       </div>
       <div>
         <h1>right side</h1>
