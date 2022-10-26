@@ -49,7 +49,7 @@ const Header = () => {
             </div>
           </ul>
         </div>
-        <Link className=" normal-case text-xl">
+        <Link to="/" className=" normal-case text-xl">
           <img
             src="images/site_logo_main.png"
             alt="logo"
