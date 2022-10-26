@@ -24,13 +24,25 @@ const Register = () => {
         <div className="form-control w-full max-w-xs mx-auto mb-10">
           <div className="mb-5">
             <label htmlFor="name" className="label">
-              <span className="label-text">Name</span>
+              <span className="label-text">Full Name</span>
             </label>
             <input
               type="text"
               name="name"
               id="name"
-              placeholder="name"
+              placeholder="full name"
+              className="input input-bordered w-full max-w-xs"
+            />
+          </div>
+          <div className="mb-5">
+            <label htmlFor="photoUrl" className="label">
+              <span className="label-text">Photo URL</span>
+            </label>
+            <input
+              type="text"
+              name="photoUrl"
+              id="photoUrl"
+              placeholder="Photo URL"
               className="input input-bordered w-full max-w-xs"
             />
           </div>
