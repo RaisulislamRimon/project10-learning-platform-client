@@ -33,10 +33,10 @@ const Header = () => {
               <Link>All Courses</Link>
             </li>
             <li tabIndex={0}>
-              <Link>FAQ</Link>
+              <Link to="/faq">FAQ</Link>
             </li>
             <li>
-              <Link>Blog</Link>
+              <Link to="/blog">Blog</Link>
             </li>
             <li>
               <Link to="/login">Login</Link>
@@ -66,10 +66,10 @@ const Header = () => {
             <Link>All Courses</Link>
           </li>
           <li tabIndex={0}>
-            <Link>FAQ</Link>
+            <Link to="/faq">FAQ</Link>
           </li>
           <li>
-            <Link>Blog</Link>
+            <Link to="/blog">Blog</Link>
           </li>
           <li>
             <Link to="/login">Login</Link>

@@ -1,4 +1,6 @@
 import Main from "../../layout/Main";
+import Blog from "../../Pages/Blog/Blog";
+import FAQ from "../../Pages/FAQ/FAQ";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Shared/Login/Login";
 import Register from "../../Pages/Shared/Register/Register";
@@ -13,6 +15,14 @@ const routes = createBrowserRouter([
       {
         path: "/home",
         element: <Home />,
+      },
+      {
+        path: "/faq",
+        element: <FAQ />,
+      },
+      {
+        path: "/blog",
+        element: <Blog />,
       },
       {
         path: "/login",
