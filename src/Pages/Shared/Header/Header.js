@@ -37,10 +37,19 @@ const Header = () => {
             </li>
           </ul>
         </div>
-        <Link className="btn btn-ghost normal-case text-xl">Edu-Learn BD</Link>
+        <Link className=" normal-case text-xl">
+          <img
+            src="images/site_logo_main.png"
+            alt="logo"
+            className="w-52 h-12 rounded-md"
+          />
+        </Link>
       </div>
       <div className="navbar-end hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
+          <li>
+            <Link>Home</Link>
+          </li>
           <li>
             <Link>All Courses</Link>
           </li>
@@ -51,10 +60,10 @@ const Header = () => {
             <Link>Blog</Link>
           </li>
           <li>
-            <Link>Register</Link>
+            <Link>Login</Link>
           </li>
           <li>
-            <Link>Login</Link>
+            <Link>Register</Link>
           </li>
         </ul>
         <div className="ml-2">
