@@ -1,3 +1,7 @@
+#Edu-Bd
+
+## Creating a new repository with create react app command and pushing it to github
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
