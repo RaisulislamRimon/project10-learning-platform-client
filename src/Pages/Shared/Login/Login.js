@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FaFacebook, FaGoogle, FaGithub } from "react-icons/fa";
 
 const Login = () => {
   const [error, setError] = useState(null);
@@ -49,6 +50,14 @@ const Login = () => {
             <button className="btn btn-wide  btn-success mx-auto my-10 text-lg">
               Login
             </button>
+
+            <div className="mx-auto mb-4">
+              <p className="">Or, sign in with google or github</p>
+              <div className="flex justify-around text-2xl m-5">
+                <FaGoogle className="hover:cursor-pointer hover:ring-2 hover:rounded" />
+                <FaGithub className="hover:cursor-pointer hover:ring-2 hover:rounded" />
+              </div>
+            </div>
             <p>
               New to this website?{" "}
               <Link to="/register" className="link link-primary">
