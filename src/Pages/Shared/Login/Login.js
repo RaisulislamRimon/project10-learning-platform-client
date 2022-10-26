@@ -52,7 +52,7 @@ const Login = () => {
             </button>
 
             <div className="mx-auto mb-4">
-              <p className="">Or, sign in with google or github</p>
+              <p className="">Or, Sign in with google or github</p>
               <div className="flex justify-around text-2xl m-5">
                 <FaGoogle className="hover:cursor-pointer hover:ring-2 hover:rounded" />
                 <FaGithub className="hover:cursor-pointer hover:ring-2 hover:rounded" />

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Register = () => {
@@ -61,6 +62,15 @@ const Register = () => {
           <button className="btn btn-wide btn-active btn-accent mx-auto my-10 text-white text-lg">
             Register
           </button>
+
+          <div className="mx-auto mb-4">
+            <p className="">Or, Create account with google or github</p>
+            <div className="flex justify-around text-2xl m-5">
+              <FaGoogle className="hover:cursor-pointer hover:ring-2 hover:rounded" />
+              <FaGithub className="hover:cursor-pointer hover:ring-2 hover:rounded" />
+            </div>
+          </div>
+
           <p>
             Already have an account?{" "}
             <Link to="/login" className="link link-primary">
