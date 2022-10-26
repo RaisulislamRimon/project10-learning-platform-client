@@ -6,12 +6,17 @@ const AllCourses = () => {
   const courses = useLoaderData();
   console.log(courses);
   return (
-    <div className="columns-3 sm:columns-2">
+    <div className="lg:columns-4 sm:columns-1">
       <div>
         <SideNavCourse courses={courses} />
       </div>
       <div>
-        <h1>right side</h1>
+        {courses.map((course) => (
+          <div key={course.id}>
+            <h1>{course.name}</h1>
+            <p>{course.description}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
