@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const SideNavCourse = () => {
   return (
     <div>
-      <h1>All Courses side navigation</h1>
+      {/* <h1>All Courses side navigation</h1> */}
       <div className="drawer drawer-mobile">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center">

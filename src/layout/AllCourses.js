@@ -3,9 +3,8 @@ import SideNavCourse from "../Pages/Shared/SideNavCourse/SideNavCourse";
 
 const AllCourses = () => {
   return (
-    <div className="">
+    <div className="columns-3 sm:columns-2">
       <div>
-        <h1>left side</h1>
         <SideNavCourse />
       </div>
       <div>
