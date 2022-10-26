@@ -1,5 +1,6 @@
 import Main from "../../layout/Main";
 import Home from "../../Pages/Home/Home";
+import Login from "../../Pages/Shared/Login/Login";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -9,8 +10,12 @@ const routes = createBrowserRouter([
     element: <Main />,
     children: [
       {
-        path: "/",
+        path: "/home",
         element: <Home />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
     ],
   },

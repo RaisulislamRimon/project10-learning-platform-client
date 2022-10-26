@@ -27,7 +27,7 @@ const Header = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link>Home</Link>
+              <Link to="/home">Home</Link>
             </li>
             <li>
               <Link>All Courses</Link>
@@ -39,7 +39,7 @@ const Header = () => {
               <Link>Blog</Link>
             </li>
             <li>
-              <Link>Login</Link>
+              <Link to="/login">Login</Link>
             </li>
             <li>
               <Link>Register</Link>
@@ -60,7 +60,7 @@ const Header = () => {
       <div className="navbar-end hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
           <li>
-            <Link>Home</Link>
+            <Link to="/home">Home</Link>
           </li>
           <li>
             <Link>All Courses</Link>
@@ -72,7 +72,7 @@ const Header = () => {
             <Link>Blog</Link>
           </li>
           <li>
-            <Link>Login</Link>
+            <Link to="/login">Login</Link>
           </li>
           <li>
             <Link>Register</Link>
