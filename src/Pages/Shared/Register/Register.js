@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Register = () => {
-  const [error, setError] = useState(null);
+  const { user, createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,9 +16,40 @@ const Register = () => {
     const password = form.password.value;
 
     if (password.length < 6) {
-      setError("Password should be at least 6 characters");
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Password should be at least 6 characters",
+        showConfirmButton: false,
+        timer: 3000,
+      });
       return;
     }
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Your account has been successfully created",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        form.reset();
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.error(error);
+        // setError(`error-this email is already used`);
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Error-this email is already used",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      });
   };
   return (
     <div>
