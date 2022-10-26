@@ -31,7 +31,7 @@ const SingleCourse = () => {
               {url}
             </Link>
           </p>
-          <button>Get premium access</button>
+          <button className="btn btn-primary">Get premium access</button>
         </div>
       </div>
     </div>
