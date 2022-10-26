@@ -22,35 +22,31 @@ const Login = () => {
         <form onSubmit={handleSubmit}>
           <div className="form-control w-full max-w-xs mx-auto mb-10">
             <div className="mb-5">
-              <label className="label">
+              <label htmlFor="email" className="label">
                 <span className="label-text">Email</span>
               </label>
               <input
                 type="email"
                 name="email"
+                id="email"
                 placeholder="email"
                 className="input input-bordered w-full max-w-xs"
               />
             </div>
             <div>
-              <label className="label">
+              <label htmlFor="password" className="label">
                 <span className="label-text">Password</span>
               </label>
               <input
                 type="password"
                 name="password"
+                id="password"
                 placeholder="password"
                 className="input input-bordered w-full max-w-xs"
               />
             </div>
 
-            {error && (
-              <p className="text-error border border-error p-1 my-3 rounded-xl text-center">
-                {error}
-              </p>
-            )}
-
-            <button className="btn btn-wide btn-active btn-accent mx-auto my-10 text-white text-lg">
+            <button className="btn btn-wide  btn-success mx-auto my-10 text-lg">
               Login
             </button>
             <p>
