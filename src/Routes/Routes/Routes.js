@@ -1,3 +1,4 @@
+import AllCourses from "../../layout/AllCourses";
 import Main from "../../layout/Main";
 import Blog from "../../Pages/Blog/Blog";
 import FAQ from "../../Pages/FAQ/FAQ";
@@ -15,6 +16,10 @@ const routes = createBrowserRouter([
       {
         path: "/home",
         element: <Home />,
+      },
+      {
+        path: "/all-courses",
+        element: <AllCourses />,
       },
       {
         path: "/faq",
