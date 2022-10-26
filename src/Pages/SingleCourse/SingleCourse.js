@@ -31,7 +31,9 @@ const SingleCourse = () => {
               {url}
             </Link>
           </p>
-          <button className="btn btn-primary">Get premium access</button>
+          <Link to={`/checkout/${id}`}>
+            <button className="btn btn-primary">Get premium access</button>
+          </Link>
         </div>
       </div>
     </div>

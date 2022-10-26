@@ -1,6 +1,7 @@
 import AllCourses from "../../layout/AllCourses";
 import Main from "../../layout/Main";
 import Blog from "../../Pages/Blog/Blog";
+import Checkout from "../../Pages/Checkout/Checkout";
 import FAQ from "../../Pages/FAQ/FAQ";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Shared/Login/Login";
@@ -28,6 +29,12 @@ const routes = createBrowserRouter([
         element: <SingleCourse />,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/course/${params.id}`),
+      },
+      {
+        path: "/checkout/:id",
+        element: <Checkout />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/checkout/${params.id}`),
       },
       {
         path: "/faq",
