@@ -64,20 +64,16 @@ const Header = () => {
               <>
                 {user?.photoURL ? (
                   <>
-                    <label
-                      tabIndex={0}
-                      className="btn btn-ghost btn-circle avatar"
+                    <div
+                      className="tooltip tooltip-bottom w-12 mr-3"
+                      data-tip={user?.email || user?.displayName}
                     >
-                      <div
-                        className="w-10 rounded-full tooltip tooltip-bottom"
-                        data-tip={user?.displayName || user.email}
-                      >
-                        <img
-                          src={user?.photoURL}
-                          alt={user?.displayName || user.email}
-                        />
-                      </div>
-                    </label>
+                      <img
+                        src={user?.photoURL}
+                        alt={user?.email}
+                        className="rounded-full"
+                      />
+                    </div>
                   </>
                 ) : (
                   <FaUser className="mt-3 ml-3 mb-3" />
@@ -128,17 +124,16 @@ const Header = () => {
             <>
               {user?.photoURL ? (
                 <>
-                  <label
-                    tabIndex={0}
-                    className="btn btn-ghost btn-circle avatar"
+                  <div
+                    className="tooltip tooltip-bottom w-12 mr-3"
+                    data-tip={user?.email || user?.displayName}
                   >
-                    <div
-                      className="w-10 rounded-full tooltip tooltip-bottom"
-                      data-tip={user?.email}
-                    >
-                      <img src={user?.photoURL} alt={user?.email} />
-                    </div>
-                  </label>
+                    <img
+                      src={user?.photoURL}
+                      alt={user?.email}
+                      className="rounded-full"
+                    />
+                  </div>
                 </>
               ) : (
                 <FaUser className="mt-3 mr-3" />
