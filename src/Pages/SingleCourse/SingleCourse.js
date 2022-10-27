@@ -30,12 +30,12 @@ const SingleCourse = () => {
           </p>
           <p className="text-stone-800 text-base font-semibold mb-14">
             Click to read details from this url : URL :
-            <Link to={url} target="_blank" className="underline">
-              {url}
-            </Link>
+            <span className="underline">{url}</span>
           </p>
           <Link to={`/checkout/${id}`}>
-            <button className="btn btn-primary btn-wide mx-20">Get premium access</button>
+            <button className="btn btn-primary btn-wide mx-20">
+              Get premium access
+            </button>
           </Link>
         </div>
       </div>

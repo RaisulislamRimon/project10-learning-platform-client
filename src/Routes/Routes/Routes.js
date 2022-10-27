@@ -16,6 +16,7 @@ const routes = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <NotFound />,
     children: [
       {
         path: "/",
@@ -28,13 +29,14 @@ const routes = createBrowserRouter([
       {
         path: "/all-courses",
         element: <AllCourses />,
-        loader: () => fetch(`http://localhost:5000/all-courses`),
+        loader: () =>
+          fetch(`https://complete-your-code.vercel.app/all-courses`),
       },
       {
         path: "/course/:id",
         element: <SingleCourse />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/course/${params.id}`),
+          fetch(`https://complete-your-code.vercel.app/course/${params.id}`),
       },
       {
         path: "/checkout/:id",
@@ -44,7 +46,7 @@ const routes = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/checkout/${params.id}`),
+          fetch(`https://complete-your-code.vercel.app/checkout/${params.id}`),
       },
       {
         path: "/faq",
