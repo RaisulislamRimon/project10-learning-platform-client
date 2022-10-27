@@ -56,7 +56,9 @@ const Register = () => {
         Swal.fire({
           position: "center",
           icon: "error",
-          title: "Error-this email is already used",
+          title:
+            (error?.code && error?.code) ||
+            "The email address is already in use by another account.",
           showConfirmButton: false,
           timer: 2000,
         });
@@ -77,6 +79,7 @@ const Register = () => {
               id="name"
               placeholder="full name"
               className="input input-bordered w-full max-w-xs"
+              required
             />
           </div>
           <div className="mb-5">
@@ -89,6 +92,7 @@ const Register = () => {
               id="photoUrl"
               placeholder="Photo URL"
               className="input input-bordered w-full max-w-xs"
+              required
             />
           </div>
           <div className="mb-5">
@@ -101,6 +105,7 @@ const Register = () => {
               id="email"
               placeholder="email"
               className="input input-bordered w-full max-w-xs"
+              required
             />
           </div>
           <div>
@@ -113,6 +118,7 @@ const Register = () => {
               id="password"
               placeholder="password"
               className="input input-bordered w-full max-w-xs"
+              required
             />
           </div>
 
