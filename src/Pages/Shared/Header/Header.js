@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
-  const { userD } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -74,9 +74,9 @@ const Header = () => {
           <li>
             <Link to="/blog">Blog</Link>
           </li>
-          {userD?.email || userD?.displayName ? (
+          {user?.email || user?.displayName ? (
             <li>
-              <Link>{userD?.email || userD?.displayName}</Link>
+              <Link>{user?.email || user?.displayName}</Link>
             </li>
           ) : (
             <>
