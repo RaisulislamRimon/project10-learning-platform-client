@@ -104,6 +104,7 @@ const Header = () => {
             alt="logo"
             className="w-52 h-12 rounded-md"
           />
+          <span>Learn to code</span>
         </Link>
       </div>
       <div className="navbar-end hidden lg:flex">
