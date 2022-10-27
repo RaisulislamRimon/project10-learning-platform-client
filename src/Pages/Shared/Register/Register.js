@@ -93,7 +93,6 @@ const Register = () => {
   };
 
   const handleGithubSignIn = () => {
-    // githubSignIn(githubProvider)
     githubSignIn(githubProvider)
       .then((result) => {
         navigate(from, { replace: true });
@@ -172,7 +171,7 @@ const Register = () => {
           </button>
 
           <div className="mx-auto mb-4">
-            <p className="">Or, Create account with google or github</p>
+            <p className="">Or, Create account with Google or Github</p>
             <div className="flex justify-around text-2xl m-5">
               <FaGoogle
                 onClick={handleGoogleSignIn}

@@ -4,10 +4,10 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
-import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
-  const { providerLogin, signIn } = useContext(AuthContext);
+  const { providerLogin, signIn, githubSignIn } = useContext(AuthContext);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -15,6 +15,7 @@ const Login = () => {
   const from = location.state?.from?.pathname || "/";
 
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -82,6 +83,23 @@ const Login = () => {
         });
       });
   };
+
+  const handleGithubSignIn = () => {
+    githubSignIn(githubProvider)
+      .then((result) => {
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Please try again",
+          showConfirmButton: false,
+          timer: 3000,
+        });
+      });
+  };
+
   return (
     <div>
       <div>
@@ -121,13 +139,16 @@ const Login = () => {
             </button>
 
             <div className="mx-auto mb-4">
-              <p className="">Or, Sign in with google or github</p>
+              <p className="">Or, Sign in with Google or Github</p>
               <div className="flex justify-around text-2xl m-5">
                 <FaGoogle
                   onClick={handleGoogleSignIn}
                   className="hover:cursor-pointer hover:ring-2 hover:rounded"
                 />
-                <FaGithub className="hover:cursor-pointer hover:ring-2 hover:rounded" />
+                <FaGithub
+                  onClick={handleGithubSignIn}
+                  className="hover:cursor-pointer hover:ring-2 hover:rounded"
+                />
               </div>
             </div>
             <p>
