@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Register = () => {
-  const { createUser, updateUserProfile, providerLogin } =
+  const { createUser, updateUserProfile, providerLogin, githubSignIn } =
     useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -15,6 +15,7 @@ const Register = () => {
   const from = location.state?.from?.pathname || "/";
 
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -77,6 +78,23 @@ const Register = () => {
 
   const handleGoogleSignIn = () => {
     providerLogin(googleProvider)
+      .then((result) => {
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Please try again",
+          showConfirmButton: false,
+          timer: 3000,
+        });
+      });
+  };
+
+  const handleGithubSignIn = () => {
+    // githubSignIn(githubProvider)
+    githubSignIn(githubProvider)
       .then((result) => {
         navigate(from, { replace: true });
       })
@@ -160,7 +178,10 @@ const Register = () => {
                 onClick={handleGoogleSignIn}
                 className="hover:cursor-pointer hover:ring-2 hover:rounded"
               />
-              <FaGithub className="hover:cursor-pointer hover:ring-2 hover:rounded" />
+              <FaGithub
+                onClick={handleGithubSignIn}
+                className="hover:cursor-pointer hover:ring-2 hover:rounded"
+              />
             </div>
           </div>
 
