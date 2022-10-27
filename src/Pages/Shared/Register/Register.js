@@ -60,7 +60,7 @@ const Register = () => {
           displayName: name,
           photoURL: photoUrl,
         });
-        navigate("/login");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error);
