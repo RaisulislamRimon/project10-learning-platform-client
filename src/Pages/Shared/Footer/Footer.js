@@ -5,17 +5,17 @@ const Footer = () => {
   return (
     <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
       <div className="grid grid-flow-col gap-4">
-        <Link to="" className="link link-hover">
+        <Link to="/faq" className="link link-hover">
           About us
         </Link>
-        <Link to="" className="link link-hover">
+        <Link to="/faq" className="link link-hover">
           Contact
         </Link>
-        <Link to="" className="link link-hover">
+        <Link to="/jobs" className="link link-hover">
           Jobs
         </Link>
-        <Link to="" className="link link-hover">
-          Press kit
+        <Link to="/terms" className="link link-hover">
+          Terms of Service
         </Link>
       </div>
       <div>
@@ -56,7 +56,7 @@ const Footer = () => {
         </div>
       </div>
       <div>
-        <p>Copyright © 2022 - All right reserved by ACME Industries Ltd</p>
+        <p>Copyright © 2022 - All right reserved by MD. Raisul Islam Rimon</p>
       </div>
     </footer>
   );
