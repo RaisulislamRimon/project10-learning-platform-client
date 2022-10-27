@@ -12,9 +12,20 @@ const Register = () => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
+    const photoUrl = form.photoUrl.value;
     const email = form.email.value;
     const password = form.password.value;
 
+    if (name === "" || photoUrl === "" || email === "" || password === "") {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Please fill up all the fields",
+        showConfirmButton: false,
+        timer: 3000,
+      });
+      return;
+    }
     if (password.length < 6) {
       Swal.fire({
         position: "center",

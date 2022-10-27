@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaFacebook, FaGoogle, FaGithub } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const [error, setError] = useState(null);
@@ -10,6 +11,17 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
+
+    if (email === "" || password === "") {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Please fill up all the fields",
+        showConfirmButton: false,
+        timer: 3000,
+      });
+      return;
+    }
 
     if (password.length < 6) {
       setError("Password must be at least 6 characters");
