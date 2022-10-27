@@ -97,9 +97,9 @@ const Header = () => {
                 </li>
               </>
             )}
-            <div>
-              <button className="btn">Dark/Light</button>
-            </div>
+            <button onClick={() => setDark(!dark)} className="btn">
+              {dark ? "Light" : "Dark"}
+            </button>
           </ul>
         </div>
         <Link to="/" className=" normal-case text-xl">

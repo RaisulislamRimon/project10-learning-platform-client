@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaFacebook, FaGoogle, FaGithub } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { useContext } from "react";
@@ -11,6 +11,9 @@ const Login = () => {
   const { providerLogin, signIn } = useContext(AuthContext);
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   const googleProvider = new GoogleAuthProvider();
 
@@ -19,6 +22,8 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
+
+    console.log(email, password);
 
     if (email === "" || password === "") {
       Swal.fire({
@@ -39,15 +44,16 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const user = result.user;
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "You have successfully logged in",
-          showConfirmButton: false,
-          timer: 2000,
-        });
+        console.log("user login");
+        // Swal.fire({
+        //   position: "center",
+        //   icon: "success",
+        //   title: "You have successfully logged in",
+        //   showConfirmButton: false,
+        //   timer: 2000,
+        // });
         form.reset();
-        navigate("/");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         Swal.fire({
@@ -65,7 +71,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
 
-        navigate("/");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         Swal.fire({
