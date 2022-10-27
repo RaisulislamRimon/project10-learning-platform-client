@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Register = () => {
-  const { user, createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -39,7 +39,6 @@ const Register = () => {
 
     createUser(email, password)
       .then((result) => {
-        const user = result.user;
         Swal.fire({
           position: "center",
           icon: "success",
@@ -56,7 +55,6 @@ const Register = () => {
       })
       .catch((error) => {
         console.error(error);
-        // setError(`error-this email is already used`);
         Swal.fire({
           position: "center",
           icon: "error",

@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaFacebook, FaGoogle, FaGithub } from "react-icons/fa";
+import { FaGoogle, FaGithub } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
-  const [error, setError] = useState(null);
   const { providerLogin, signIn } = useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -35,20 +34,25 @@ const Login = () => {
     }
 
     if (password.length < 6) {
-      setError("Password must be at least 6 characters");
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Password must be at least 6 characters",
+        showConfirmButton: false,
+        timer: 3000,
+      });
       return;
     }
 
     signIn(email, password)
       .then((result) => {
-        const user = result.user;
-        // Swal.fire({
-        //   position: "center",
-        //   icon: "success",
-        //   title: "You have successfully logged in",
-        //   showConfirmButton: false,
-        //   timer: 2000,
-        // });
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "You have successfully logged in",
+          showConfirmButton: false,
+          timer: 2000,
+        });
         form.reset();
         navigate(from, { replace: true });
       })
@@ -66,8 +70,6 @@ const Login = () => {
   const handleGoogleSignIn = () => {
     providerLogin(googleProvider)
       .then((result) => {
-        const user = result.user;
-
         navigate(from, { replace: true });
       })
       .catch((error) => {
