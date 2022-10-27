@@ -62,29 +62,29 @@ const Header = () => {
             </li>
             {user?.email || user?.displayName ? (
               <>
-                <li>
-                  <Link>{user?.email || user?.displayName}</Link>
-                </li>
                 {user?.photoURL ? (
                   <>
                     <label
                       tabIndex={0}
                       className="btn btn-ghost btn-circle avatar"
                     >
-                      <div className="w-10 rounded-full">
+                      <div
+                        className="w-10 rounded-full tooltip tooltip-bottom"
+                        data-tip={user?.displayName || user.email}
+                      >
                         <img
                           src={user?.photoURL}
                           alt={user?.displayName || user.email}
                         />
                       </div>
                     </label>
-                    <button onClick={handleLogOut} className="btn w-28 mb-2">
-                      Log out
-                    </button>
                   </>
                 ) : (
-                  <FaUser />
+                  <FaUser className="mt-3 ml-3 mb-3" />
                 )}
+                <button onClick={handleLogOut} className="btn w-full mb-2">
+                  Log out
+                </button>
               </>
             ) : (
               <>
@@ -126,29 +126,26 @@ const Header = () => {
           </li>
           {user?.email || user?.displayName ? (
             <>
-              <li>
-                <Link>{user?.email || user?.displayName}</Link>
-              </li>
               {user?.photoURL ? (
                 <>
                   <label
                     tabIndex={0}
                     className="btn btn-ghost btn-circle avatar"
                   >
-                    <div className="w-10 rounded-full">
-                      <img
-                        src={user?.photoURL}
-                        alt={user?.displayName || user.email}
-                      />
+                    <div
+                      className="w-10 rounded-full tooltip tooltip-bottom"
+                      data-tip={user?.email}
+                    >
+                      <img src={user?.photoURL} alt={user?.email} />
                     </div>
                   </label>
-                  <button onClick={handleLogOut} className="btn">
-                    Log out
-                  </button>
                 </>
               ) : (
-                <FaUser />
+                <FaUser className="mt-3 mr-3" />
               )}
+              <button onClick={handleLogOut} className="btn">
+                Log out
+              </button>
             </>
           ) : (
             <>
@@ -162,7 +159,7 @@ const Header = () => {
             </>
           )}
 
-          <button onClick={() => setDark(!dark)} className="btn">
+          <button onClick={() => setDark(!dark)} className="btn ml-2">
             {dark ? "Light" : "Dark"}
           </button>
         </ul>
