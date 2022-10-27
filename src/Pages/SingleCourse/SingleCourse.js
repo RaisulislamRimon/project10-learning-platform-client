@@ -24,7 +24,7 @@ const SingleCourse = () => {
 
   return (
     <div className="container">
-      <div className="card text-center card-compact w-3/5 mt-16 mb-16 bg-base-100 shadow-2xl mx-auto">
+      <div className="card text-center card-compact w-full h-auto md:w-3/5 mt-16 mb-16 bg-base-100 shadow-2xl mx-auto">
         <Link to="/all-courses" className="text-left m-3">
           <button>
             <FaArrowCircleLeft className="inline mx-2" />
@@ -33,7 +33,7 @@ const SingleCourse = () => {
         </Link>
         <div
           ref={componentRef}
-          style={{ width: "100%", height: window.innerHeight }}
+          style={{ width: "100%", height: window.outerHeight }}
         >
           <div className="text-4xl mt-10">
             Course Title : {name}
