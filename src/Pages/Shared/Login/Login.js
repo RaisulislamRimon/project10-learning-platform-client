@@ -8,7 +8,7 @@ import { GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
   const [error, setError] = useState(null);
-  const { providerLogin } = useContext(AuthContext);
+  const { providerLogin, signIn } = useContext(AuthContext);
 
   const googleProvider = new GoogleAuthProvider();
 
@@ -33,6 +33,28 @@ const Login = () => {
       setError("Password must be at least 6 characters");
       return;
     }
+
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "You have successfully logged in",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        form.reset();
+      })
+      .catch((error) => {
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: error.code && error.code,
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      });
   };
 
   const handleGoogleSignIn = () => {
