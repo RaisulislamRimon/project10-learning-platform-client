@@ -1,5 +1,6 @@
 import React from "react";
 import { useContext } from "react";
+import { FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
@@ -27,7 +28,7 @@ const Header = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-64"
           >
             <li>
               <Link to="/home">Home</Link>
@@ -41,14 +42,42 @@ const Header = () => {
             <li>
               <Link to="/blog">Blog</Link>
             </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/register">Register</Link>
-            </li>
+            {user?.email || user?.displayName ? (
+              <>
+                <li>
+                  <Link>{user?.email || user?.displayName}</Link>
+                </li>
+                {user?.photoURL ? (
+                  <>
+                    <label
+                      tabIndex={0}
+                      className="btn btn-ghost btn-circle avatar"
+                    >
+                      <div className="w-10 rounded-full">
+                        <img
+                          src={user?.photoURL}
+                          alt={user?.displayName || user.email}
+                        />
+                      </div>
+                    </label>
+                  </>
+                ) : (
+                  <FaUser />
+                )}
+              </>
+            ) : (
+              <>
+                {" "}
+                <li>
+                  <Link to="/login">Login</Link>
+                </li>
+                <li>
+                  <Link to="/register">Register</Link>
+                </li>
+              </>
+            )}
             <div>
-              <Link className="btn">Dark/Light</Link>
+              <button className="btn">Dark/Light</button>
             </div>
           </ul>
         </div>
@@ -61,7 +90,7 @@ const Header = () => {
         </Link>
       </div>
       <div className="navbar-end hidden lg:flex">
-        <ul className="menu menu-horizontal p-0">
+        <ul className="menu menu-horizontal p-0 ">
           <li>
             <Link to="/home">Home</Link>
           </li>
@@ -75,9 +104,28 @@ const Header = () => {
             <Link to="/blog">Blog</Link>
           </li>
           {user?.email || user?.displayName ? (
-            <li>
-              <Link>{user?.email || user?.displayName}</Link>
-            </li>
+            <>
+              <li>
+                <Link>{user?.email || user?.displayName}</Link>
+              </li>
+              {user?.photoURL ? (
+                <>
+                  <label
+                    tabIndex={0}
+                    className="btn btn-ghost btn-circle avatar"
+                  >
+                    <div className="w-10 rounded-full">
+                      <img
+                        src={user?.photoURL}
+                        alt={user?.displayName || user.email}
+                      />
+                    </div>
+                  </label>
+                </>
+              ) : (
+                <FaUser />
+              )}
+            </>
           ) : (
             <>
               {" "}
@@ -89,10 +137,10 @@ const Header = () => {
               </li>
             </>
           )}
+          <div className="">
+            <Link className="btn">Dark/Light</Link>
+          </div>
         </ul>
-        <div className="ml-2">
-          <Link className="btn">Dark/Light</Link>
-        </div>
       </div>
     </div>
   );
