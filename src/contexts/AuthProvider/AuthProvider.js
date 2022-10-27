@@ -73,7 +73,7 @@ const AuthProvider = ({ children }) => {
 
   const userD = { displayName: "Rimon" };
 
-  const userdInfo = { userD };
+  const userdInfo = { userD, providerLogin };
 
   return (
     <>

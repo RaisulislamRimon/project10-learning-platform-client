@@ -2,9 +2,15 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaFacebook, FaGoogle, FaGithub } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { useContext } from "react";
+import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
   const [error, setError] = useState(null);
+  const { providerLogin } = useContext(AuthContext);
+
+  const googleProvider = new GoogleAuthProvider();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,6 +33,23 @@ const Login = () => {
       setError("Password must be at least 6 characters");
       return;
     }
+  };
+
+  const handleGoogleSignIn = () => {
+    providerLogin(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Please try again",
+          showConfirmButton: false,
+          timer: 3000,
+        });
+      });
   };
   return (
     <div>
@@ -66,7 +89,10 @@ const Login = () => {
             <div className="mx-auto mb-4">
               <p className="">Or, Sign in with google or github</p>
               <div className="flex justify-around text-2xl m-5">
-                <FaGoogle className="hover:cursor-pointer hover:ring-2 hover:rounded" />
+                <FaGoogle
+                  onClick={handleGoogleSignIn}
+                  className="hover:cursor-pointer hover:ring-2 hover:rounded"
+                />
                 <FaGithub className="hover:cursor-pointer hover:ring-2 hover:rounded" />
               </div>
             </div>
