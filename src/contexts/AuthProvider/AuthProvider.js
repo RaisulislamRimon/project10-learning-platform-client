@@ -71,8 +71,15 @@ const AuthProvider = ({ children }) => {
     setLoading,
   };
 
+  const userD = { displayName: "Rimon" };
+
+  const userdInfo = { userD };
+
   return (
-    <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
+    <>
+      {/* <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider> */}
+      <AuthContext.Provider value={userdInfo}>{children}</AuthContext.Provider>
+    </>
   );
 };
 
