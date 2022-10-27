@@ -66,7 +66,7 @@ const Header = () => {
                   <>
                     <div
                       className="tooltip tooltip-bottom w-12 mr-3"
-                      data-tip={user?.email || user?.displayName}
+                      data-tip={user?.displayName || user?.email}
                     >
                       <img
                         src={user?.photoURL}
@@ -126,7 +126,7 @@ const Header = () => {
                 <>
                   <div
                     className="tooltip tooltip-bottom w-12 mr-3"
-                    data-tip={user?.email || user?.displayName}
+                    data-tip={user?.displayName || user?.email}
                   >
                     <img
                       src={user?.photoURL}

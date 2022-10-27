@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Register = () => {
-  const { user, createUser } = useContext(AuthContext);
+  const { user, createUser, updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -48,6 +48,10 @@ const Register = () => {
           timer: 2000,
         });
         form.reset();
+        updateUserProfile({
+          displayName: name,
+          photoURL: photoUrl,
+        });
         navigate("/login");
       })
       .catch((error) => {
