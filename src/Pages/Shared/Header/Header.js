@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useContext } from "react";
 import { FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -6,6 +6,7 @@ import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
   const { user } = useContext(AuthContext);
+  const [dark, setDark] = useState(false);
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -121,6 +122,7 @@ const Header = () => {
                       />
                     </div>
                   </label>
+                  <button className="btn">Log out</button>
                 </>
               ) : (
                 <FaUser />
@@ -137,9 +139,10 @@ const Header = () => {
               </li>
             </>
           )}
-          <div className="">
-            <Link className="btn">Dark/Light</Link>
-          </div>
+
+          <button onClick={() => setDark(!dark)} className="btn">
+            {dark ? "Light" : "Dark"}
+          </button>
         </ul>
       </div>
     </div>
