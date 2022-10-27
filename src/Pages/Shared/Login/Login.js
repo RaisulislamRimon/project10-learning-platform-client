@@ -23,8 +23,6 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log(email, password);
-
     if (email === "" || password === "") {
       Swal.fire({
         position: "center",
@@ -44,7 +42,6 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const user = result.user;
-        console.log("user login");
         // Swal.fire({
         //   position: "center",
         //   icon: "success",
