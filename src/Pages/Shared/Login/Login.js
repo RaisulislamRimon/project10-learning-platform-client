@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaFacebook, FaGoogle, FaGithub } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { useContext } from "react";
@@ -9,6 +9,8 @@ import { GoogleAuthProvider } from "firebase/auth";
 const Login = () => {
   const [error, setError] = useState(null);
   const { providerLogin, signIn } = useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   const googleProvider = new GoogleAuthProvider();
 
@@ -45,6 +47,7 @@ const Login = () => {
           timer: 2000,
         });
         form.reset();
+        navigate("/");
       })
       .catch((error) => {
         Swal.fire({
@@ -61,7 +64,8 @@ const Login = () => {
     providerLogin(googleProvider)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+
+        navigate("/");
       })
       .catch((error) => {
         Swal.fire({
@@ -104,7 +108,10 @@ const Login = () => {
               />
             </div>
 
-            <button className="btn btn-wide  btn-success mx-auto my-10 text-lg">
+            <button
+              type="submit"
+              className="btn btn-wide  btn-success mx-auto my-10 text-lg"
+            >
               Login
             </button>
 
