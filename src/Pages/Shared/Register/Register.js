@@ -1,12 +1,20 @@
+import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Register = () => {
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile, providerLogin } =
+    useContext(AuthContext);
+
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
+
+  const googleProvider = new GoogleAuthProvider();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -66,6 +74,23 @@ const Register = () => {
         });
       });
   };
+
+  const handleGoogleSignIn = () => {
+    providerLogin(googleProvider)
+      .then((result) => {
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Please try again",
+          showConfirmButton: false,
+          timer: 3000,
+        });
+      });
+  };
+
   return (
     <div>
       <h2 className="text-center text-4xl font-bold mb-10">Register</h2>
@@ -131,7 +156,10 @@ const Register = () => {
           <div className="mx-auto mb-4">
             <p className="">Or, Create account with google or github</p>
             <div className="flex justify-around text-2xl m-5">
-              <FaGoogle className="hover:cursor-pointer hover:ring-2 hover:rounded" />
+              <FaGoogle
+                onClick={handleGoogleSignIn}
+                className="hover:cursor-pointer hover:ring-2 hover:rounded"
+              />
               <FaGithub className="hover:cursor-pointer hover:ring-2 hover:rounded" />
             </div>
           </div>

@@ -19,8 +19,6 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  //   const user = { displayName: "Rimon" };
-
   const providerLogin = (provider) => {
     setLoading(true);
     return signInWithPopup(auth, provider);
