@@ -2,11 +2,28 @@ import React, { useState } from "react";
 import { useContext } from "react";
 import { FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const [dark, setDark] = useState(false);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        <Swal
+          position="center"
+          icon="success"
+          title="You have successfully logged out"
+          showConfirmButton={false}
+          timer={2000}
+        />;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -61,6 +78,9 @@ const Header = () => {
                         />
                       </div>
                     </label>
+                    <button onClick={handleLogOut} className="btn w-28 mb-2">
+                      Log out
+                    </button>
                   </>
                 ) : (
                   <FaUser />
@@ -122,7 +142,9 @@ const Header = () => {
                       />
                     </div>
                   </label>
-                  <button className="btn">Log out</button>
+                  <button onClick={handleLogOut} className="btn">
+                    Log out
+                  </button>
                 </>
               ) : (
                 <FaUser />
