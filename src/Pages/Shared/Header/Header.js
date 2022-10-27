@@ -12,13 +12,13 @@ const Header = () => {
   const handleLogOut = () => {
     logOut()
       .then(() => {
-        <Swal
-          position="center"
-          icon="success"
-          title="You have successfully logged out"
-          showConfirmButton={false}
-          timer={2000}
-        />;
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "You have successfully logged out",
+          showConfirmButton: false,
+          timer: 3000,
+        });
       })
       .catch((error) => {
         console.error(error);
