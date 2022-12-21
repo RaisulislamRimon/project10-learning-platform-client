@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import BannerCard from "../BannerCard/BannerCard";
 
 const Home = () => {
   return (
@@ -29,6 +30,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <BannerCard />
     </div>
   );
 };
