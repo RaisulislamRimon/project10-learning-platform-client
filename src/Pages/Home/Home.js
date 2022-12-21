@@ -13,10 +13,10 @@ const Home = () => {
         <div className="hero-overlay bg-opacity-80"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold">
+            <h1 className="mb-5 text-5xl font-bold bg-gray-700 rounded-lg p-3">
               Do you want to learn coding ?
             </h1>
-            <p className="mb-5">
+            <p className="mb-5 bg-gray-700 p-3 rounded-lg lg:text-xl">
               This website will help you to learn coding easily. You can learn
               by watching videos and also you can practice by solving problems.
               You can also ask questions and get answers from other users. You
