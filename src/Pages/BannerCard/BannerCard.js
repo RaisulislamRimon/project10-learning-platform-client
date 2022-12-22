@@ -18,16 +18,19 @@ const BannerCard = () => {
   if (error) return <LoadingError />;
 
   return (
-    <div className="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-20 lg:pl-36 md:pl-32 sm:pl-32 p-10">
-      {data.map((course) => (
-        <div
-          key={course.id}
-          id={course.id}
-          className="carousel-item relative w-full m-10"
-        >
-          <img src={course.image} className="w-48 h-48" alt="" />
-        </div>
-      ))}
+    <div>
+      <h1 className="text-4xl text-center mt-10 mb-5 underline">All Courses</h1>
+      <div className="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-20 lg:pl-36 md:pl-32 sm:pl-32 p-10">
+        {data.map((course) => (
+          <div
+            key={course.id}
+            id={course.id}
+            className="carousel-item relative w-full m-10"
+          >
+            <img src={course.image} className="w-48 h-48" alt="" />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
