@@ -5,17 +5,6 @@ import Loading from "../Shared/Loading/Loading";
 import LoadingError from "../Shared/Loading/LoadingError";
 
 const BannerCard = () => {
-  // const [data, setData] = useState([]);
-  // useEffect(() => {
-  //   fetch("https://complete-your-code.vercel.app/all-courses")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data?.image);
-  //       console.log(data?.length);
-  //       console.log(data);
-  //       setData(data);
-  //     });
-  // }, []);
   const { isLoading, error, data } = useQuery({
     queryKey: ["repoData"],
     queryFn: () =>
