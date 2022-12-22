@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import BannerAlbum from "../BannerAlbum/BannerAlbum";
 import BannerCard from "../BannerCard/BannerCard";
 
 const Home = () => {
@@ -30,6 +31,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <BannerAlbum />
       <BannerCard />
     </div>
   );
