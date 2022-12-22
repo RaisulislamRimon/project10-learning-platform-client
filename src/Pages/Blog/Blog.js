@@ -3,6 +3,9 @@ import React from "react";
 const Blog = () => {
   return (
     <div className="mt-20 container mx-auto">
+      <div>
+        <h1 className="text-4xl text-center mt-10 mb-5 underline">Blog</h1>
+      </div>
       <div
         tabIndex={0}
         className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box"

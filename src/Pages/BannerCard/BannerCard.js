@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "../Shared/Loading/Loading";
 import LoadingError from "../Shared/Loading/LoadingError";
+import { Link } from "react-router-dom";
 
 const BannerCard = () => {
   const { isLoading, error, data } = useQuery({
@@ -27,7 +28,9 @@ const BannerCard = () => {
             id={course.id}
             className="carousel-item relative w-full m-10"
           >
-            <img src={course.image} className="w-48 h-48" alt="" />
+            <Link to={`/course/${course.id}`}>
+              <img src={course.image} className="w-48 h-48" alt="" />
+            </Link>
           </div>
         ))}
       </div>

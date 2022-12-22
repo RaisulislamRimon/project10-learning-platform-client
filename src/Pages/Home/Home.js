@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import BannerAlbum from "../BannerAlbum/BannerAlbum";
 import BannerCard from "../BannerCard/BannerCard";
+import Blog from "../Blog/Blog";
+import FAQ from "../FAQ/FAQ";
 
 const Home = () => {
   return (
@@ -32,7 +34,9 @@ const Home = () => {
         </div>
       </div>
       <BannerAlbum />
+      <FAQ />
       <BannerCard />
+      <Blog />
     </div>
   );
 };
